@@ -1,0 +1,20 @@
+[
+    {
+        "Id": 1,
+        "FirstName":"Jan",
+        "LastName": "Nowak",
+        "AccountNumber": 12345
+    },
+    {
+        "Id": 2,
+        "FirstName":"Piotr",
+        "LastName": "Nowak",
+        "AccountNumber": 2345
+    },
+    {
+        "Id": 3,
+        "FirstName":"Michał",
+        "LastName": "Nowak",
+        "AccountNumber": 69786
+    }
+]

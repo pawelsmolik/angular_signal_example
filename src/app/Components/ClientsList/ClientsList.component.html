@@ -1,0 +1,15 @@
+Client List [{{this.clientEntityService.GetAll.length}}]:
+<br>
+<input type="button" (click)="addClient()" value="Add Client">
+<input type="button" (click)="refresh()" value="Refresh Client">
+<br>
+<br>
+ <div>
+    @for (item of this.clientEntityService.GetAll; track $index) {
+        <div>
+            <input type="button" (click)="deleteClient(item.Id)" value="Remove" [disabled]="this.clientEntityService.GetAll.length <= 0">
+            {{$index + 1}} | {{item.Id}} | {{item.FirstName}} | {{item.LastName}}
+        </div>
+    }
+</div>
+

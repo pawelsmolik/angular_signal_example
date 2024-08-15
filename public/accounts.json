@@ -1,0 +1,17 @@
+[
+    {
+        "Id": 1,
+        "ClientId": 1,
+        "AccountNumber": 12345
+    },
+    {
+        "Id": 2,
+        "ClientId": 2,
+        "AccountNumber": 2345
+    },
+    {
+        "Id": 3,
+        "ClientId": 3,
+        "AccountNumber": 69786
+    }
+]
