@@ -11,13 +11,13 @@ accountService = inject(AccountEntityService)
 
 constructor(){
   super("/clients.json");
-  this.getDataFromDb(null);
-}
+  this.fetchDataFromDb(null);
 
-public override Refresh(): void {
+  effect(() => {
+    console.log(`ClientEntityService Effect: ${this.GetAll}`);
+    this.accountService.Refresh();
+  });
   
-  this.getDataFromDb(null);
-  this.accountService.Refresh();
 }
 }
 

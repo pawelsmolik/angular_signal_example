@@ -8,7 +8,7 @@ export class AccountEntityService extends EntityBaseService<AccountEntity> {
 
 constructor() { 
   super("/accounts.json");
-  this.getDataFromDb(null);
+  this.fetchDataFromDb(null);
 }
 
 }
