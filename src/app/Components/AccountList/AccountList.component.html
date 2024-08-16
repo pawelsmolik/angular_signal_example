@@ -1,6 +1,6 @@
 Account List [{{this.accountEntityService.GetAll.length}}]:
 <div>
     @for (item of this.accountEntityService.GetAll; track $index) {
-        <div><input type="button" (click)="deleteAccount(item.Id)" value="Rremove" [disabled]="this.accountEntityService.GetAll.length <= 0"> {{$index + 1}} | {{item.ClientId}} | {{item.AccountNumber}}</div>
+        <div><input type="button" (click)="deleteAccount(item.id)" value="Rremove" [disabled]="this.accountEntityService.GetAll.length <= 0"> {{$index + 1}} | {{item.clientId}} | {{item.accountNumber}}</div>
     }
 </div>

@@ -15,22 +15,16 @@ export class ClientAccountListComponent {
   accountService = inject(AccountEntityService)
 
   getAccountNumber(_client: ClientEntity): number | undefined {
-    return this.accountService.GetAll.find(a => a.ClientId == _client.Id)?.AccountNumber;
+    return this.accountService.GetAll.find(a => a.clientId == _client.id)?.accountNumber;
   }
 
   getClientAccounts(_client: ClientEntity) {
-    return this.accountService.GetAll.filter(a => a.ClientId == _client.Id);
+    return this.accountService.GetAll.filter(a => a.clientId == _client.id);
   }
 
   public delete(_client: ClientEntity)
   {
-    this.clientService.Delete(_client.Id);
-
-    let accountForClient = this.getClientAccounts(_client);
-
-    accountForClient.forEach(element => {
-      this.accountService.Delete(element.Id)
-    });
+    this.clientService.Delete(_client.id);
   }
 
 }

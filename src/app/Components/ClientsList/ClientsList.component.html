@@ -7,8 +7,8 @@ Client List [{{this.clientEntityService.GetAll.length}}]:
  <div>
     @for (item of this.clientEntityService.GetAll; track $index) {
         <div>
-            <input type="button" (click)="deleteClient(item.Id)" value="Remove" [disabled]="this.clientEntityService.GetAll.length <= 0">
-            {{$index + 1}} | {{item.Id}} | {{item.FirstName}} | {{item.LastName}}
+            <input type="button" (click)="deleteClient(item.id)" value="Remove" [disabled]="this.clientEntityService.GetAll.length <= 0">
+            {{$index + 1}} | {{item.id}} | {{item.firstName}} | {{item.lastName}}
         </div>
     }
 </div>

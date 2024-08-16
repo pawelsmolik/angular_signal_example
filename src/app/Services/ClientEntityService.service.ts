@@ -10,7 +10,7 @@ export class ClientEntityService extends EntityBaseService<ClientEntity> {
 accountService = inject(AccountEntityService)
 
 constructor(){
-  super("/clients.json");
+  super("clients");
   this.fetchDataFromDb(null);
 
   effect(() => {
@@ -22,12 +22,12 @@ constructor(){
 }
 
 export class ClientEntity extends BaseEntity{
-  public FirstName: string = "";
-  public LastName: string = "";
+  public firstName: string = "";
+  public lastName: string = "";
 
   constructor(id: number, firstName: string, lastName: string){
     super(id)
-    this.FirstName = firstName;
-    this.LastName = lastName;
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }

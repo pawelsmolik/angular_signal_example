@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ClientEntityService, ClientEntity } from '../../Services/ClientEntityService.service';
-import { AccountEntity, AccountEntityService } from '../../Services/AccountEntityService.service';
+import { AccountEntityService } from '../../Services/AccountEntityService.service';
 
 @Component({
   selector: 'app-ClientsList',
@@ -20,9 +20,6 @@ public refresh(): void {
   public addClient(): void{
     let user = new ClientEntity(Math.round(Math.random() * 1000000), generateGUID(), generateGUID());
     this.clientEntityService.Add(user);
-
-    let account = new AccountEntity(Math.round(Math.random() * 1000000), user.Id, Math.round(Math.random() * 1000000))
-    this.accountEntityService.Add(account);
   }
 
   public deleteClient(idx: number)

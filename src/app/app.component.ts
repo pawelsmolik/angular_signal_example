@@ -18,28 +18,4 @@ import { ClientAccountListComponent } from "./Components/ClientAccountList/Clien
 })
 export class AppComponent {
   title = 'angularSignalExample';
-
-  userEntityService = inject(ClientEntityService)
-  accountEntityService = inject(AccountEntityService)
-
-  public addUser(): void{
-    let user = new ClientEntity(Math.round(Math.random() * 1000000), generateGUID(), generateGUID());
-    this.userEntityService.Add(user);
-
-    let account = new AccountEntity(Math.round(Math.random() * 1000000), user.Id, Math.round(Math.random() * 1000000))
-    this.accountEntityService.Add(account);
-  }
-
-  public deleteUser(idx: number)
-  {
-    this.userEntityService.Delete(idx);
-  }
 }
-
-function generateGUID(): string {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-  var r = Math.random() * 16 | 0,
-  v = c === 'x' ? r : (r & 0x3 | 0x8);
-  return v.toString(16);
-  });
-  }

@@ -7,19 +7,19 @@ import { BaseEntity, EntityBaseService } from './EntityBase.service';
 export class AccountEntityService extends EntityBaseService<AccountEntity> {
 
 constructor() { 
-  super("/accounts.json");
+  super("accounts");
   this.fetchDataFromDb(null);
 }
 
 }
 
 export class AccountEntity extends BaseEntity{
-  public ClientId: number = 0;
-  public AccountNumber: number = 0;
+  public clientId: number = 0;
+  public accountNumber: number = 0;
 
   constructor(id: number, clientId: number, accountNumber: number){
     super(id)
-    this.ClientId = clientId;
-    this.AccountNumber = accountNumber;
+    this.clientId = clientId;
+    this.accountNumber = accountNumber;
   }
 }

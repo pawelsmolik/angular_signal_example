@@ -10,6 +10,10 @@ private httpClient = inject(HttpClient);
 
 constructor(@Inject('url') private url: string) { }
 
+private getBaseUrl(): string{
+  return "https://localhost:7235/";
+}
+
 private entityData = signal<T[]>([] as T[]);
 
 public get GetAll(): T[] {
@@ -17,17 +21,16 @@ public get GetAll(): T[] {
 }
 
 public Add(element: T){
-  let newList = this.entityData();
-  newList.push(element);
-  this.httpClient.get<T[]>(this.url).pipe().subscribe(a => {  
-    this.fetchDataFromDb(newList);
+  this.httpClient.post<T[]>(this.getBaseUrl() + this.url, element).pipe().subscribe(a => {  
+    this.fetchDataFromDb(null);
   });
 }
 
 public Delete(idx: number){
-  let newList = this.entityData().filter(a => (a as BaseEntity).Id != idx)
-  this.httpClient.get<T[]>(this.url).pipe().subscribe(a => {
-    this.fetchDataFromDb(newList);
+  this.httpClient.delete<T[]>(this.getBaseUrl() + this.url, {
+    params: {"id": idx}
+  }).pipe().subscribe(a => {
+    this.fetchDataFromDb(null);
   })
 }
 
@@ -38,24 +41,18 @@ public Refresh(): void{
 protected fetchDataFromDb(data: any | null){
 
   console.log("getDataFromDb do url:" + this.url)
-  if(!data)
-  {
-    this.httpClient.get<T[]>(this.url).pipe().subscribe(a => {
-        this.entityData.update(v => v = a);
-    });
-  }
-  else{
-    this.entityData.update(v => v = data);
-  } 
+  this.httpClient.get<T[]>(this.getBaseUrl() + this.url).pipe().subscribe(a => {
+    this.entityData.update(v => v = a);
+  });
 }
 
 }
 
 export class BaseEntity{
-  public Id: number = 0;
+  public id: number = 0;
 
   constructor(id: number){
-    this.Id = id;
+    this.id = id;
   }
 
 }

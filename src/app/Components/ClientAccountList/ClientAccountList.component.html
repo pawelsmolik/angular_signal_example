@@ -2,6 +2,6 @@
   Client Account List [{{this.clientService.GetAll.length}}]:
 
   @for (item of this.clientService.GetAll; track $index) {
-    <div><input type="button" (click)="delete(item)" value="Remove" [disabled]="this.clientService.GetAll.length <= 0"> {{$index + 1}} | {{item.FirstName}} | {{item.LastName}} | {{getAccountNumber(item) ?? "brak"}}</div>
+    <div><input type="button" (click)="delete(item)" value="Remove" [disabled]="this.clientService.GetAll.length <= 0"> {{$index + 1}} | {{item.firstName}} | {{item.lastName}} | {{getAccountNumber(item) ?? "brak"}}</div>
   }
 </p>
